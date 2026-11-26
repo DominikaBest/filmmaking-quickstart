@@ -45,3 +45,9 @@ $('#palette .heading h1').innerHTML='Choose your scene’s color & framing';
 $('#palette .heading > p').textContent='Compare two frames. Choose one visual direction.';
 // Keep the optional personal note on the reference-making step, away from the presentation gallery.
 const lookInput=$('#palette .single-input');if(lookInput)$('#references').append(lookInput);
+
+// The bottom controls follow the gallery while the color step is active.
+function directorPager(){if(current!==2)return;const id=document.querySelector('[data-director].active')?.dataset.director;const i=FILM_STUDIES.findIndex(f=>f.id===id);if(i<0)return;$('#pager').innerHTML=`<button id="back">${i===0?'← Find the flip':'← Previous director'}</button><span>${i+1} / ${FILM_STUDIES.length} directors</span><button id="next">${i===FILM_STUDIES.length-1?'Next: make references →':'Next director →'}</button>`;$('#back').onclick=()=>{if(i===0)go(1);else chooseDirector(FILM_STUDIES[i-1].id)};$('#next').onclick=()=>{if(i===FILM_STUDIES.length-1)go(3);else chooseDirector(FILM_STUDIES[i+1].id)}}
+const galleryChoice=chooseDirector;chooseDirector=function(id){galleryChoice(id);directorPager()};
+const workflowShow=show;show=function(id){workflowShow(id);directorPager()};
+show(location.hash.slice(1));
