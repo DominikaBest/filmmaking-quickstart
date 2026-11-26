@@ -35,3 +35,13 @@ let saved={};try{saved=JSON.parse(localStorage.getItem('teaser-starter')||'{}')}
 document.querySelectorAll('[data-copy-parent]').forEach(b=>b.onclick=async()=>{const text=b.parentElement.querySelector('p').textContent;try{await navigator.clipboard.writeText(text);b.textContent='Copied'}catch{b.textContent='Select the prompt text to copy'}});
 $('#download-plan').onclick=()=>{const values=Object.fromEntries([...document.querySelectorAll('[data-save]')].map(i=>[i.dataset.save,i.value]));const text='MY FIRST TEASER\n\n'+Object.entries(values).map(([k,v])=>k.toUpperCase()+': '+v).join('\n')+'\n\nWORKFLOW\n'+steps.map((s,i)=>`${i+1}. ${s[1]}`).join('\n')+'\n\nEMPTY CHAIR — TEACHING STORYBOARD\n'+board.map(([,t,d,l],i)=>`S${i+1}: ${t} (${d}s) — ${l}`).join('\n');const url=URL.createObjectURL(new Blob([text],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='my-first-teaser.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('#save-message').textContent='Starter plan downloaded.'};
 show(location.hash.slice(1));
+
+// Screen-sized filmmaker comparisons: one pair at a time, with the takeaway in view.
+let framePair=0;
+function renderPair(){const figures=[...document.querySelectorAll('#director-gallery .film-grid figure')];figures.forEach((f,i)=>f.hidden=Math.floor(i/2)!==framePair);let controls=$('#frame-pairs');if(!controls){controls=document.createElement('div');controls.id='frame-pairs';$('#director-gallery .gallery-title').append(controls)}controls.innerHTML=[0,1,2].map(n=>`<button data-pair="${n}" class="${n===framePair?'active':''}" aria-pressed="${n===framePair}">${n*2+1}–${n*2+2}</button>`).join('');controls.querySelectorAll('button').forEach(b=>b.onclick=()=>{framePair=Number(b.dataset.pair);renderPair()})}
+const fullDirector=chooseDirector;chooseDirector=function(id){framePair=0;fullDirector(id);renderPair()};
+const activeDirector=document.querySelector('[data-director].active')?.dataset.director||'wes';chooseDirector(activeDirector);
+$('#palette .heading h1').innerHTML='Choose your scene’s color & framing';
+$('#palette .heading > p').textContent='Compare two frames. Choose one visual direction.';
+// Keep the optional personal note on the reference-making step, away from the presentation gallery.
+const lookInput=$('#palette .single-input');if(lookInput)$('#references').append(lookInput);
