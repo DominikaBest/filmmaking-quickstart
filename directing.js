@@ -56,3 +56,13 @@ function renderReferencePair(pair=0){
  root.querySelector('[data-reference-next]').onclick=()=>renderReferencePair(pair+1);
 }
 renderReferencePair();
+
+const sceneIdeas=[
+ ['wes','Wes Anderson','Pastel pink, sage and yellow · frontal symmetry · a precise social snub.'],
+ ['tarantino','Quentin Tarantino','Bold contrast · confrontational framing · hold for the reaction.'],
+ ['villeneuve','Denis Villeneuve','Muted color · imposing space · tension through distance and stillness.'],
+ ['kubrick','Stanley Kubrick','Controlled geometry · central perspective · an unsettling sense of order.'],
+ ['indie','Indie drama','Natural light · intimate faces · small reactions carry the choice.']
+];
+function renderIdea(i){const [id,name,note]=sceneIdeas[i];$('#ideas-tabs').innerHTML=sceneIdeas.map((s,n)=>`<button data-idea="${n}" class="${n===i?'active':''}" aria-pressed="${n===i}">${esc(s[1])}</button>`).join('');$('#idea-sheet').innerHTML=`<img src="assets/ideas/${id}.png" alt="The Empty Chair: ${esc(name)} concept storyboard sheet"><figcaption><b>Our scene · ${esc(name)}</b><span>${esc(note)}</span></figcaption>`;$('#idea-note').innerHTML=`<span>Early look tests · before our character references were locked.</span><a href="assets/ideas/${id}.png" target="_blank" rel="noopener">Open full-size sheet ↗</a>`;$('#ideas-tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>renderIdea(+b.dataset.idea))}
+renderIdea(0);
