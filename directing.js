@@ -4,7 +4,7 @@ const classroomShots=[
  ['Cassius enters','WIDE · hold the doorway','He enters; attention shifts.','entry'],
  ['Meet the power lead','CLOSE-UP · hold','Let his stillness register.','cassius'],
  ['Everyone notices','MEDIUM · reaction cut','Whispers and glances establish his pull.','students'],
- ['The invitation','MEDIUM · deep staging','Vivienne turns back to Cassius, hand on the empty chair.','turn'],
+ ['The invitation','MEDIUM · deep staging','Vivienne turns toward Cassius, rests her hand on the chair and holds his gaze.','turn'],
  ['She turns back','MEDIUM · deep staging','Her look connects to Cassius at the door.','turn'],
  ['Linney looks up','CLOSE-UP · reaction cut','A glance, then back to her book.','linney'],
  ['The put-down','MEDIUM · hold, then pan right','Proposed: “He’s not sitting with you.”','offer'],
@@ -13,7 +13,7 @@ const classroomShots=[
  ['He sits beside her','WIDE · hold','Chair scrape. Vivienne’s seat stays empty.','seated'],
  ['Her pen stops','INSERT · exact overhead','Writing stops as he sits. Hold the tiny pause.','pen','11A'],
  ['The flip lands','WIDE · hold the consequence','Power Lead Chooses YOU.','seated','12']
-];
+].map((shot,i)=>{shot[4] ||= String(i+1).padStart(2,'0');return shot}).filter(shot=>shot[4]!=='06');
 const shotImage=n=>`assets/classroom-build/S${Number(n)===5?'06':String(n).padStart(2,'0')}.png`;
 function classroomSketch(kind){
  const person=(x,y,c,label)=>`<circle cx="${x}" cy="${y}" r="9" fill="#e5c8b5"/><rect x="${x-10}" y="${y+10}" width="20" height="23" rx="4" fill="${c}"/><text x="${x}" y="${y+48}" text-anchor="middle">${label}</text>`;
@@ -32,8 +32,7 @@ const shotDirections={
  '02':['▣ HOLD','Hold the doorway in the centered wide.','Cassius steps through, pauses, then starts down the aisle.'],
  '03':['▣ HOLD','Locked close-up at eye level.','Cassius pauses and surveys the room with a small eye movement.'],
  '04':['▣ HOLD','Locked medium on the students.','Heads turn toward Cassius; two girls lean together, whisper and giggle.'],
- '05':['▣ HOLD','Hold Vivienne and the empty chair foreground, Cassius in the doorway.','Vivienne turns back to look at Cassius, keeping her hand on the empty chair.'],
- '06':['▣ HOLD','Hold Vivienne foreground and Cassius in the doorway.','She turns back toward him; students glance over and whisper.'],
+ '05':['▣ HOLD','Hold Vivienne and the empty chair foreground, Cassius in the doorway.','Vivienne turns toward Cassius, rests her hand on the empty chair and holds his gaze.'],
  '07':['▣ HOLD','Locked close-up on Linney.','She glances toward Cassius, then lowers her eyes to the page.'],
  '08':['→ PAN','Hold for the line, then pan right from Vivienne to Linney.','Vivienne gives Linney a dismissive smile; Linney keeps her eyes down.'],
  '09':['▣ HOLD','Locked close-up. Let his reaction play.','Cassius hears the insult; his eyes shift toward Vivienne and his jaw settles.'],
@@ -49,10 +48,10 @@ function classroomCard(s,i,direct=false){
 }
 let classroomPair=0;
 function renderClassroomPair(n){
- classroomPair=Math.max(0,Math.min(6,n));
+ classroomPair=Math.max(0,Math.min(Math.ceil(classroomShots.length/2)-1,n));
  for(const id of ['storyboard','direct']){
  const root=$('#'+id);root.classList.add('classroom-slide');
- root.innerHTML=`<div class="classroom-toolbar"><h1>${id==='direct'?'Camera &amp; blocking':'The Empty Chair'} <small>· Wes-inspired test</small></h1><div class="classroom-pairs" aria-label="Shot pairs">${Array.from({length:7},(_,j)=>`<button data-classroom-pair="${j}" class="${j===classroomPair?'active':''}" aria-pressed="${j===classroomPair}">${j<5?`${j*2+1}–${j*2+2}`:j===5?'11–11A':'12'}</button>`).join('')}</div></div><div class="classroom-grid">${classroomShots.map((s,i)=>`<div ${Math.floor(i/2)!==classroomPair?'hidden':''}>${classroomCard(s,i,id==='direct')}</div>`).join('')}</div><div class="classroom-controls"><button data-classroom-prev ${classroomPair===0?'disabled':''}>← Previous shots</button><span>${classroomPair+1} / 7 · Stills above, staging below · camera moves are proposals</span><button data-classroom-next ${classroomPair===6?'disabled':''}>Next shots →</button></div>`;
+ root.innerHTML=`<div class="classroom-toolbar"><h1>${id==='direct'?'Camera &amp; blocking':'The Empty Chair'} <small>· Wes-inspired test</small></h1><div class="classroom-pairs" aria-label="Shot pairs">${Array.from({length:Math.ceil(classroomShots.length/2)},(_,j)=>`<button data-classroom-pair="${j}" class="${j===classroomPair?'active':''}" aria-pressed="${j===classroomPair}">${classroomShots.slice(j*2,j*2+2).map(shot=>shot[4]).join('–')}</button>`).join('')}</div></div><div class="classroom-grid">${classroomShots.map((s,i)=>`<div ${Math.floor(i/2)!==classroomPair?'hidden':''}>${classroomCard(s,i,id==='direct')}</div>`).join('')}</div><div class="classroom-controls"><button data-classroom-prev ${classroomPair===0?'disabled':''}>← Previous shots</button><span>${classroomPair+1} / ${Math.ceil(classroomShots.length/2)} · Stills above, staging below · camera moves are proposals</span><button data-classroom-next ${classroomPair===Math.ceil(classroomShots.length/2)-1?'disabled':''}>Next shots →</button></div>`;
  root.querySelectorAll('[data-classroom-pair]').forEach(b=>b.onclick=()=>renderClassroomPair(+b.dataset.classroomPair));
  root.querySelector('[data-classroom-prev]').onclick=()=>renderClassroomPair(classroomPair-1);
  root.querySelector('[data-classroom-next]').onclick=()=>renderClassroomPair(classroomPair+1);
