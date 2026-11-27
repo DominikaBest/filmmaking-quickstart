@@ -4,7 +4,7 @@ const classroomShots=[
  ['Cassius enters','WIDE · hold the doorway','He enters; attention shifts.','entry'],
  ['Meet the power lead','CLOSE-UP · hold','Let his stillness register.','cassius'],
  ['Everyone notices','MEDIUM · reaction cut','Whispers and glances establish his pull.','students'],
- ['The invitation','MEDIUM · locked','Vivienne claims the empty chair.','offer'],
+ ['The invitation','MEDIUM · deep staging','Vivienne turns back to Cassius, hand on the empty chair.','turn'],
  ['She turns back','MEDIUM · deep staging','Her look connects to Cassius at the door.','turn'],
  ['Linney looks up','CLOSE-UP · reaction cut','A glance, then back to her book.','linney'],
  ['The put-down','MEDIUM · hold, then pan right','Proposed: “He’s not sitting with you.”','offer'],
@@ -14,7 +14,7 @@ const classroomShots=[
  ['Her pen stops','INSERT · exact overhead','Writing stops as he sits. Hold the tiny pause.','pen','11A'],
  ['The flip lands','WIDE · hold the consequence','Power Lead Chooses YOU.','seated','12']
 ];
-const shotImage=n=>`assets/classroom-build/S${String(n).padStart(2,'0')}.png`;
+const shotImage=n=>`assets/classroom-build/S${Number(n)===5?'06':String(n).padStart(2,'0')}.png`;
 function classroomSketch(kind){
  const person=(x,y,c,label)=>`<circle cx="${x}" cy="${y}" r="9" fill="#e5c8b5"/><rect x="${x-10}" y="${y+10}" width="20" height="23" rx="4" fill="${c}"/><text x="${x}" y="${y+48}" text-anchor="middle">${label}</text>`;
  const chair=x=>`<rect x="${x-12}" y="79" width="24" height="28" rx="6" fill="none" stroke="#e4a18c" stroke-width="3"/>`;
@@ -32,7 +32,7 @@ const shotDirections={
  '02':['▣ HOLD','Hold the doorway in the centered wide.','Cassius steps through, pauses, then starts down the aisle.'],
  '03':['▣ HOLD','Locked close-up at eye level.','Cassius pauses and surveys the room with a small eye movement.'],
  '04':['▣ HOLD','Locked medium on the students.','Heads turn toward Cassius; two girls lean together, whisper and giggle.'],
- '05':['▣ HOLD','Locked frontal medium; include the empty chair.','Vivienne rests her hand on the chair back and lifts her chin.'],
+ '05':['▣ HOLD','Hold Vivienne and the empty chair foreground, Cassius in the doorway.','Vivienne turns back to look at Cassius, keeping her hand on the empty chair.'],
  '06':['▣ HOLD','Hold Vivienne foreground and Cassius in the doorway.','She turns back toward him; students glance over and whisper.'],
  '07':['▣ HOLD','Locked close-up on Linney.','She glances toward Cassius, then lowers her eyes to the page.'],
  '08':['→ PAN','Hold for the line, then pan right from Vivienne to Linney.','Vivienne gives Linney a dismissive smile; Linney keeps her eyes down.'],
