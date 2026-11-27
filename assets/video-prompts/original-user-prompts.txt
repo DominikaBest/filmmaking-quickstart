@@ -1,23 +1,137 @@
+The Empty Chair — Video Prompts
+
+ · 
+
 How to use these prompts
-Each of the 13 storyboard shots gets two video prompts: a Nexus prompt for Seedance and a MAGI-2 prompt. Every shot is written for 6 seconds, so there is room to cut down to the 2–4 seconds the storyboard uses in the edit.
+
+Each of the 12 storyboard shots gets two video prompts: a Nexus prompt for Seedance and a MAGI-2 prompt. Every shot is written for 6 seconds, so there is room to cut down to the 2–4 seconds the storyboard uses in the edit.
+
 Nexus (Seedance) is PJ Accetturo's structure. Every upload gets an @ reference line that says exactly what it controls. Then come scene context, a tech spec with the lens in degrees, the lighting, physics and shadow locks, and a CUT line with the acting: objective against obstacle, the character's tic, the moment the mask cracks, and their eye life. Paste names as plain text (Vivienne, not @Vivienne) so Higgsfield doesn't link them to saved Elements.
+
 MAGI-2 follows its own prompt guide: about 60–150 words in a fixed order (subject, scene, action, light, camera, audio). It has no @ tags, just one line asking it to match the attached references. Dialogue goes in quotes, and the audio clause ends with "no music". MAGI-2 sometimes adds music anyway; strip it in Resolve's Music Remixer.
-Every storyboard still becomes a clip: 13 shots, S01–S12 plus the S11A insert. Under each shot, the first prompt is Nexus (Seedance) and the second is MAGI-2.
+
+Every storyboard still becomes a clip: 12 shots — 01, 02, 03, 04, 05, 07, 08, 09, 10, 11, 11A and 12. Shot 05 is the merged invitation/turn-back beat. Under each shot, the first prompt is Nexus (Seedance) and the second is MAGI-2.
+
 Attach, in this order, for both models:
-1.  The shot's approved still (assets/classroom-build/S##.png). It sets the frame, the room and the people.
-2.  The character sheet of each lead in the shot: vivienne.png, cassius.png, linney.png.
-3.  room.png, for architecture, palette and light.
-4.  house-uniforms.png, only when background students are in frame.
+
+Files for each shot. Stills are in FFA_Class/03_Classroom_Shots, sheets in FFA_Class/02_Character_Sheets, the room in FFA_Class/01_Location_Plates/Wes_Classroom. These are the exact versions the website shows. Every shot also takes the room plate, empty-classroom-v02.png.
+
+Shot
+
+Approved still (upload first)
+
+Character sheets
+
+Uniforms sheet
+
+01 · Classroom
+
+S01-classroom-v03.png
+
+Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+02 · Cassius enters
+
+S02-classroom-v01.png
+
+Cassius-classroom-v01, Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+03 · Close-up
+
+S03-cassius-closeup-v01.png
+
+Cassius-classroom-v01
+
+—
+
+04 · Reaction
+
+S04-student-reaction-v01.png
+
+—
+
+pastel-house-uniforms-v01
+
+05 · Invitation
+
+S05-invitation-turnback-v04.png (same image as S06-vivienne-turns-back-v03)
+
+Vivienne-classroom-v02, Cassius-classroom-v01
+
+pastel-house-uniforms-v01
+
+07 · Linney looks up
+
+S07-linney-reaction-v01.png
+
+Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+08 · Put-down
+
+S08-vivienne-putdown-v01.png; pan end frame S08-END-linney-pan-v02.png
+
+Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+09 · He hears it
+
+S09-cassius-hears-v01.png
+
+Cassius-classroom-v01
+
+—
+
+10 · The choice
+
+S10-cassius-choice-v01.png
+
+Cassius-classroom-v01, Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+11 · He sits
+
+start S10-cassius-choice-v01.png, end S11-cassius-sits-v02.png
+
+Cassius-classroom-v01, Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+11A · Pen stops
+
+S11A-pen-stops-v01.png
+
+Linney-classroom-v01
+
+—
+
+12 · Consequence
+
+S12-choice-reactions-v03.png
+
+Cassius-classroom-v01, Vivienne-classroom-v02, Linney-classroom-v01
+
+pastel-house-uniforms-v01
+
+On MAGI-2, a start or end frame cannot be combined with reference images. So S08 and S11 have two options: start frame plus end frame alone, or the still and sheets as references with no end frame.
+
 Locks shared by every shot (Nexus):
-• Lens lock: clean modern spherical lens, steady symmetrical framing, smooth tonal gradients. No film grain, no gritty texture, no lens flare, no CGI cleanliness. This matches the stills, which ask for a clean finish rather than our usual vintage anamorphic look.
-• Lighting lock: soft even daylight from the two leaded side windows, pastel palette of salmon walls, sage trim, honey-yellow desks and coral chairs. Gentle shadow that holds detail. Never: harsh sun, night, coloured gels, high contrast.
-• Physics lock: real weight and gravity, natural breathing, cloth and hair moving with the body. No gliding, no sliding feet, no frozen mannequin stillness.
+
 Two decisions before generating:
-[ ] Pick the put-down line. The storyboard has "Who let the charity case in?"; the Camera & Blocking page and the S08 still use "Don't look so hopeful. He's not sitting with you." These prompts use the second.
-[ ] There is no previs playblast for this scene. Most shots are locked off, so the still carries the framing. S02 (the walk in), S08 (the pan) and S10–S11 (the walk and the sit) would gain from a 6-second Blender playblast added as the reference video.
+
 Shots 01–07: the setup
+
 S01 · The classroom
+
 Camera: locked, frontal wide, aisle centered. Actors: students chat or read; Linney looks down; both spare chairs stay empty. Attach: S01.png, vivienne.png, linney.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S01: first frame, framing, room and seating. Hold this exact composition.
 @Image2 - Vivienne: angular face, green eyes, long auburn waves; charcoal blazer with dusty-red piping and crest, striped tie. She needs the room to see that she is chosen. Tic: her fingertips rest on the top rail of the empty chair beside her. Eye life: bright, quick, checking who is watching. 100% matches. Character appearance only.
 @Image3 - Linney: freckles, blue eyes, long tousled brown hair; plain light-grey blazer, white shirt, grey tie, no crest. She wants to stay invisible. Tic: her thumb worries the corner of the page. Eye life: lowered eyes, rare quick glances up. 100% matches. Character appearance only.
@@ -33,9 +147,13 @@ Physics lock: real weight and gravity, natural breathing, cloth and hair moving 
 CUT - frontal wide, everyone already seated in the first frame - background students chat in pairs, turn pages, one laughs softly behind a hand. Vivienne smooths her blazer and glances along the row as if checking her audience. Linney reads, head down; her thumb rubs the corner of the page and she turns it. Both empty chairs stay empty and clearly visible. - the room hums -
 
 Sound design: No music. Soft classroom murmur, a page turning, a chair creak.
+
 A pastel academy classroom in soft daylight, frontal and perfectly symmetrical. Vivienne, a young woman with long auburn waves in a charcoal blazer with dusty-red piping, sits at the left front desk; the chair beside her is empty. Linney, freckled, with tousled brown hair in a plain light-grey blazer, reads at the right front desk; the chair beside her is empty too. A clear center aisle leads to a sage double door. First, students behind them chat and turn pages. Then Vivienne glances along the row, and Linney turns a page without looking up. Soft window light from both sides on salmon walls and yellow desks. Wide shot, static tripod, centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: soft classroom murmur; a page turning; no music.
+
 S02 · Cassius enters
+
 Camera: hold the doorway in the centered wide. Actors: Cassius steps through, pauses, then starts down the aisle. Attach: S02.png, cassius.png, vivienne.png, linney.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S02: first frame, framing, room and seating. Hold this exact composition.
 @Image2 - Cassius: grey-green eyes, dark tousled wavy hair; charcoal blazer with dusty-red piping and crest, grey waistcoat, white shirt, striped tie. He will choose for himself, not be claimed. Tic: his eyes survey a room a beat before his head turns. Eye life: slow, measured blinks. 100% matches. Character appearance only.
 @Image3 - Vivienne: as her sheet; outer left chair at the left desk. Character appearance only.
@@ -52,9 +170,13 @@ Physics lock: real weight and gravity, heel-to-toe steps with weight transfer, n
 CUT - frontal wide - Cassius steps through the door, heel down, weight forward, and stops on the threshold. His eyes travel the room before his head follows. Conversations falter row by row; heads turn back toward him. He starts down the center aisle at an unhurried pace. Vivienne straightens; Linney keeps reading. - the murmur drops -
 
 Sound design: No music. The door creaking, footsteps on the floor, the murmur fading.
+
 Cassius, a tall young man with dark wavy hair in a charcoal blazer with dusty-red piping and a grey waistcoat, appears in the open sage double door at the back of a pastel academy classroom. Students sit at yellow desks; Vivienne at the left front desk, Linney at the right. First he steps through the doorway and pauses, eyes scanning the room. Then he walks slowly down the center aisle as heads turn toward him and the chatter dies. Soft daylight from leaded windows on salmon walls. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: the door creaks; footsteps on the floor; the murmur fades to quiet; no music.
+
 S03 · Meet the power lead
+
 Camera: locked close-up at eye level. Actors: Cassius pauses and surveys the room with a small eye movement. Attach: S03.png, cassius.png, room.png.
+
 @Image1 - approved still S03: first frame and framing. Hold this exact composition.
 @Image2 - Cassius: grey-green eyes, dark tousled wavy hair; charcoal blazer with dusty-red piping and crest, grey waistcoat, striped tie. He will choose for himself, not be claimed. Tic: his eyes move a beat before his head. Eye life: slow, measured blinks, nothing hurried. 100% matches. Character appearance only.
 @Image3 - empty classroom: the sage door and pink panels behind him, palette and light only.
@@ -68,9 +190,13 @@ Physics lock: real weight, natural breathing, hair moving slightly with the head
 CUT - close-up, Cassius already in frame - he wants a seat on his own terms; the whole room is waiting to claim him. He stands still. His eyes move first, left across the room, then right; his head follows a fraction. One slow blink. His face gives nothing away. - he holds -
 
 Sound design: No music. A hushed room, a whisper somewhere behind camera.
+
 Cassius, a young man with grey-green eyes and dark tousled hair in a charcoal blazer with dusty-red piping, stands just inside a pastel classroom doorway, the sage door and pink panels soft behind him. First he holds still. Then his eyes move slowly across the room, left and then right, his head following slightly, and he blinks once, composed and unreadable. Soft daylight from the side. Close-up at eye level, static tripod, shallow depth of field, 16:9. Match his face, uniform and the doorway to the attached references. Audio: a hushed room; a faint whisper; no music.
+
 S04 · Everyone notices
+
 Camera: locked medium on the students. Actors: heads turn toward Cassius; two girls lean together, whisper and giggle. Attach: S04.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S04: first frame, framing and the six students. Hold this exact composition.
 @Image2 - empty classroom: walls, window, desks and light only.
 @Image3 - house uniforms: their pastel blazers only.
@@ -84,27 +210,14 @@ Physics lock: real weight, natural breathing, shoulders and hair moving with eac
 CUT - medium group, all six already seated - on the left the cream-blazer girl leans to her teal-blazer friend's ear, hand cupped at her mouth, and whispers; the friend presses her fingers to her lips to keep in a giggle, eyes flicking toward camera. Across the row, a pen stops above a notebook, a book lowers, a student twists in his chair to look. Every eyeline goes to the same spot just past the lens. - the whisper lands -
 
 Sound design: No music. A whisper, a stifled giggle, a chair creaking as someone turns.
+
 Six students in pastel academy blazers sit at yellow desks in a sunny salmon-walled classroom. First a girl in a cream blazer leans to her friend in pale teal and whispers behind her hand; the friend smothers a giggle. Then the others look up from books and notebooks, one pen stopping mid-word, one boy twisting in his chair, all turning toward someone just past the camera. Soft daylight from a leaded window. Medium group shot, static tripod, 16:9. Match the students, uniforms and room to the attached references. Audio: a whisper; a stifled giggle; a chair creaking; no music.
-S05 · The invitation
-Camera: locked medium, frontal, on Vivienne and the empty chair. Actors: Vivienne rests her hand on the empty chair, raises her chin and looks toward Cassius off screen right. No dialogue. Attach: S05.png, vivienne.png, room.png, house-uniforms.png.
-@Image1 - approved still S05: first frame, framing, seating and background students. Hold this exact composition.
-@Image2 - Vivienne: angular face, green eyes, long auburn waves, berry lips; charcoal blazer with dusty-red piping and crest, striped tie. She needs the room to see that she is chosen. Tic: her fingertips rest on the top rail of the empty chair. Eye life: bright, quick, checking who is watching. 100% matches. Character appearance only.
-@Image3 - empty classroom: palette and light only.
-@Image4 - house uniforms: background students' blazers only.
 
-Scene context: Vivienne sits outer left at the left desk, the empty coral chair beside her on frame right. Cassius is walking in, off screen right. 6 seconds, real time.
+S05 · The invitation (she turns back)
 
-Tech spec: 47 degree lens, medium two-seat shot from the front of her desk, locked off; Vivienne and the whole empty chair sharp. Lens lock: clean modern spherical lens, steady symmetrical framing, smooth tonal gradients, no film grain, no lens flare, no CGI cleanliness.
-Lighting lock: soft even daylight from the left leaded window; salmon walls, sage trim, honey-yellow desk, coral chair; gentle shadow that holds detail. Never harsh sun or high contrast.
-Physics lock: real weight, natural breathing, her sleeve and hair moving with her arm. No frozen mannequin stillness.
-
-CUT - medium, Vivienne already facing camera - she wants him to choose her in front of everyone; she won't be seen asking. She reaches sideways without looking and lets her hand settle on the top rail of the empty chair, slow and deliberate. She raises her chin. Her eyes slide off screen right toward Cassius and hold there, a small certain smile at one corner of her mouth. Behind her, a classmate notices and nudges another. - her hand stays on the chair -
-
-Sound design: No music. A sleeve rustling, quiet classroom murmur.
-Vivienne, a young woman with green eyes and long auburn waves in a charcoal blazer with dusty-red piping, sits at the front left desk of a pastel classroom, an empty coral chair beside her and students behind. First she reaches sideways and slowly rests her hand on the top of the empty chair without looking at it. Then she raises her chin and looks off screen right toward someone arriving, a small confident smile at the corner of her mouth. Soft daylight from the window behind. Medium shot, static tripod, frontal, 16:9. Match her face, uniform, the students and the room to the attached references. Audio: a sleeve rustling; quiet classroom murmur; no music.
-S06 · She turns back
 Camera: hold Vivienne and the empty chair in the foreground, Cassius in the doorway. Actors: Vivienne turns toward Cassius, rests her hand on the empty chair and holds his gaze. Attach: S06.png, vivienne.png, cassius.png, room.png, house-uniforms.png.
-@Image1 - approved still S06 (turn back): first frame, framing, seating and Cassius in the far doorway. Hold this exact composition.
+
+@Image1 - approved still S05 (the turn-back image): first frame, framing, seating and Cassius in the far doorway. Hold this exact composition.
 @Image2 - Vivienne: angular face, green eyes, long auburn waves; charcoal blazer with dusty-red piping and crest. She needs the room to see that she is chosen. Tic: her fingertips rest on the top rail of the empty chair. However, when he doesn't respond, her smile holds a beat too long. Eye life: bright, quick, checking who is watching. 100% matches. Character appearance only.
 @Image3 - Cassius: as his sheet; small, standing in the rear doorway at frame right. Character appearance only.
 @Image4 - empty classroom: palette and light only.
@@ -119,9 +232,13 @@ Physics lock: real weight, natural breathing, her hair swinging as she turns. No
 CUT - medium, Vivienne already twisted toward the door - she wants him to come to her in front of everyone; he hasn't moved. She lets her hand settle on the top rail of the empty chair and pats it once, lightly. She lifts her chin and holds his gaze with a small, certain smile. Behind her, students look from her to the door. Her smile holds a beat longer than it should. - the chair waits -
 
 Sound design: No music. A sleeve rustling, a soft pat on the chair, quiet room tone.
-Vivienne, a young woman with long auburn waves in a charcoal blazer with dusty-red piping, sits at the front left desk of a pastel classroom, twisted toward the sage door at the back where Cassius, a tall dark-haired young man, stands watching. First she rests her hand on the top of the empty coral chair beside her and pats it once. Then she lifts her chin and holds his gaze with a small confident smile while classmates glance between them. Soft daylight from the window. Medium shot, static tripod, deep staging, 16:9. Match faces, uniforms and the room to the attached references. Audio: a sleeve rustling; a soft pat on the chair; quiet room tone; no music.
+
+Vivienne, a young woman with long auburn waves in a charcoal blazer with dusty-red piping, sits at the front left desk of a pastel classroom, twisted toward the sage door at the back where Cassius, a tall dark-haired young man, stands watching. First she rests her hand on the top of the empty coral chair beside her and pats it once. Then she lifts her chin and holds his gaze with a small confident smile while the classmates behind her turn in their seats, whisper to each other and glance between her and the door. Soft daylight from the window. Medium shot, static tripod, deep staging, 16:9. Match faces, uniforms and the room to the attached references. Audio: a sleeve rustling; a soft pat on the chair; quiet room tone; no music.
+
 S07 · Linney looks up
+
 Camera: locked close-up on Linney. Actors: she glances toward Cassius, then lowers her eyes to the page. Attach: S07.png, linney.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S07: first frame and framing. Hold this exact composition.
 @Image2 - Linney: freckles, blue eyes, long tousled brown hair; plain light-grey blazer, white shirt, grey tie, no crest. She wants to stay invisible. Tic: her thumb worries the corner of the page. Eye life: lowered eyes, quick guarded glances up, soft wet catchlights. 100% matches. Character appearance only.
 @Image3 - empty classroom: palette and light only.
@@ -133,33 +250,44 @@ Tech spec: 29 degree lens, medium close-up at desk height, locked off, shallow f
 Lighting lock: soft even daylight from the right window behind her; pastel palette; gentle shadow that holds detail. Never harsh sun or high contrast.
 Physics lock: real weight, natural breathing, hair moving with the turn of her head. No frozen mannequin stillness.
 
-CUT - medium close-up, Linney already reading - she wants to stay unseen; she can't stop herself looking. Her eyes lift off the page and slide toward frame left, toward the doorway; her chin rises a fraction. She looks a beat too long, catches herself, and her eyes drop back to the book. Her thumb finds the page corner. - she doesn't look up again -
+CUT - medium close-up, Linney already reading - she wants to stay unseen; she can't stop herself looking. Her eyes lift off the page and slide toward frame left, toward the doorway; her chin rises a fraction. She looks a beat too long, catches herself, and her eyes drop back to the book. Her thumb finds the page corner. Behind her, students keep reading and writing; one pair whispers and glances toward the back. - she doesn't look up again -
 
 Sound design: No music. The page under her thumb, soft room murmur.
-Linney, a freckled young woman with blue eyes and long tousled brown hair in a plain light-grey blazer, sits reading at the right front desk of a pastel classroom, an empty coral chair beside her. First her eyes lift from the book and glance toward the back of the room, her chin rising slightly, curious and guarded. Then she catches herself and lowers her eyes to the page, her thumb on its corner. Soft daylight from the window behind her. Medium close-up, static tripod, shallow depth of field, 16:9. Match her face, uniform and the room to the attached references. Audio: a page under her thumb; soft room murmur; no music.
+
+Linney, a freckled young woman with blue eyes and long tousled brown hair in a plain light-grey blazer, sits reading at the right front desk of a pastel classroom, an empty coral chair beside her. First her eyes lift from the book and glance toward the back of the room, her chin rising slightly, curious and guarded. Then she catches herself and lowers her eyes to the page, her thumb on its corner. Behind her, classmates in pastel blazers keep reading, writing and whispering, a few glancing toward the back of the room. Soft daylight from the window behind her. Medium close-up, static tripod, shallow depth of field, 16:9. Match her face, uniform and the room to the attached references. Audio: a page under her thumb; soft room murmur; no music.
+
 Shots 08–12: the insult and the choice
+
 S08 · The put-down
-Camera: hold for the line, then pan right from Vivienne to Linney. Actors: Vivienne gives Linney a dismissive smile; Linney keeps her eyes down. Attach: S08.png, vivienne.png, linney.png, room.png, house-uniforms.png.
-@Image1 - approved still S08: first frame, framing and seating. Hold this composition until the pan.
-@Image2 - Vivienne: angular face, green eyes, long auburn waves; charcoal blazer with dusty-red piping and crest. She needs the room to see that she is chosen. Tic: her fingertips tap the top rail of the empty chair. Eye life: bright, quick, checking who is watching. 100% matches. Character appearance only.
-@Image3 - Linney: freckles, blue eyes, long tousled brown hair; plain light-grey blazer, no crest. She wants to stay invisible. Tic: her thumb worries the corner of the page. 100% matches. Character appearance only.
-@Image4 - empty classroom: palette, light and the right desk the pan lands on.
-@Image5 - house uniforms: background students' blazers only.
+
+Camera: a true pan. The tripod stays in front of Vivienne's desk and rotates about 45 degrees right, crossing the aisle (Cassius glimpsed in the rear door) and landing diagonally on Linney. Actors: Vivienne gives Linney a dismissive smile and the line; Linney keeps her eyes down. Seedance: S08-vivienne-putdown-v01.png as first frame, S08-END-linney-pan-v02.png as last frame, plus Vivienne-classroom-v02, Linney-classroom-v01, Cassius-classroom-v01, empty-classroom-v02, pastel-house-uniforms-v01. MAGI-2: the two frames only (start and end), no other references.
+
+@Image1 - approved still S08: first frame. Camera position, height, lens and framing on Vivienne.
+@Image2 - pan end frame S08-END v02: last frame. The same tripod turned right, looking diagonally across the aisle at Linney, Cassius small in the rear door.
+@Image3 - Vivienne: angular face, green eyes, long auburn waves; charcoal blazer with dusty-red piping and crest. She needs the room to see that she is chosen. Tic: her fingertips tap the top rail of the empty chair. Eye life: bright, quick, checking who is watching. 100% matches. Character appearance only.
+@Image4 - Linney: freckles, blue eyes, long tousled brown hair; plain light-grey blazer, no crest. She wants to stay invisible. Tic: her thumb worries the corner of the page. 100% matches. Character appearance only.
+@Image5 - Cassius: as his sheet; only small and soft in the rear doorway as the camera passes. Character appearance only.
+@Image6 - empty classroom: architecture, palette and light only.
+@Image7 - house uniforms: background students' blazers only.
 
 Voice Vivienne: "A young British woman. Cool and amused; every word a smile with an edge."
 
-Scene context: Cassius is still walking down the aisle, off camera. Vivienne turns from him to Linney across the aisle. 6 seconds, real time.
+Scene context: Cassius has stopped in the rear doorway. Vivienne, at the left front desk, turns her attention to Linney across the aisle. 6 seconds, real time.
 
-Tech spec: 47 degree lens, medium close-up on Vivienne at desk height, locked for the line, then one smooth pan right across the aisle to land on Linney at the right desk. Lens lock: clean modern spherical lens, smooth tonal gradients, no film grain, no lens flare, no CGI cleanliness.
+Tech spec: 47 degree lens on a fixed tripod in front of the left front desk at seated eye height. Hold on Vivienne for the line, then one smooth pan right of about 45 degrees: the frame sweeps across the center aisle, past the rear door, and settles on Linney at the right front desk, seen diagonally and smaller, exactly as @Image2. The tripod never moves; no dolly, no zoom. Lens lock: clean modern spherical lens, smooth tonal gradients, no film grain, no lens flare, no CGI cleanliness.
 Lighting lock: soft even daylight from both leaded side windows; pastel palette; gentle shadows that hold detail. Never harsh sun or high contrast.
 Physics lock: real weight, natural breathing, hair moving with the head. No gliding, no frozen mannequin stillness.
 
-CUT - medium close-up, Vivienne already facing forward, hand on the empty chair - she wants Linney to know her place; Linney won't look at her. She tilts her head toward the aisle, one eyebrow up, a small pitying smile. Vivienne (light, carrying): "Don't look so hopeful. He's not sitting with you." Her fingertips tap the chair rail once. The camera pans right across the aisle and settles on Linney, eyes still on her book; her thumb presses the corner of the page flat. - Linney doesn't look up -
+CUT - medium close-up, Vivienne already facing forward, hand on the empty chair - she wants Linney to know her place; Linney won't look at her. She tilts her head toward the aisle, one eyebrow up, a small pitying smile. Vivienne (light, carrying): "Don't look so hopeful. He's not sitting with you." Her fingertips tap the chair rail once. The camera pans right across the aisle; Cassius stands still in the rear doorway as it passes. It settles on Linney, eyes still on her book; her thumb presses the corner of the page flat. Throughout, the students behind them shift, whisper and trade glances; two stifle laughs. - Linney doesn't look up -
 
 Sound design: No music. Her line clear and close, a few stifled laughs behind, then quiet.
-Vivienne, a young woman with long auburn waves in a charcoal blazer with dusty-red piping, sits at the front left desk of a pastel classroom, one hand on the empty coral chair beside her. First she tilts her head toward the aisle with a small pitying smile and speaks to Linney across the room. Then the camera pans right to Linney, a freckled young woman in a plain light-grey blazer, who keeps her eyes on her book and presses the page flat with her thumb. Soft daylight from both windows. Medium close-up, holds, then one smooth pan right, 16:9. Match faces, uniforms and the room to the attached references. Audio: Vivienne says lightly, "Don't look so hopeful. He's not sitting with you."; a few stifled laughs; no music.
+
+A pastel academy classroom in soft daylight. Vivienne, a young woman with long auburn waves in a charcoal blazer with dusty-red piping, sits at the front left desk with one hand on the empty coral chair beside her. First she tilts her head toward the aisle with a small pitying smile and speaks across the room. Then the camera, fixed on its tripod, pans right across the center aisle, past Cassius standing in the rear doorway, and settles diagonally on Linney, a freckled young woman in a plain light-grey blazer at the right front desk, who keeps her eyes on her book and presses the page flat with her thumb. Throughout, the students behind them shift in their seats, whisper and trade glances, two of them stifling laughs. Medium close-up, holds, then one smooth pan right, 16:9. Audio: Vivienne says lightly, "Don't look so hopeful. He's not sitting with you."; a few stifled laughs; no music.
+
 S09 · He hears it
+
 Camera: locked close-up; let his reaction play. Actors: Cassius hears the insult; his eyes shift toward Vivienne and his jaw settles. Attach: S09.png, cassius.png, room.png.
+
 @Image1 - approved still S09: first frame and framing. Hold this exact composition.
 @Image2 - Cassius: grey-green eyes, dark tousled wavy hair; charcoal blazer with dusty-red piping and crest, grey waistcoat, striped tie. He will choose for himself, not be claimed. Tic: his eyes move a beat before his head. However, when someone is cruel, the stillness breaks and his jaw sets. Eye life: slow, measured blinks. 100% matches. Character appearance only.
 @Image3 - empty classroom: the sage door and pink panels behind him, palette and light only.
@@ -173,9 +301,13 @@ Physics lock: real weight, natural breathing. No frozen mannequin stillness, no 
 CUT - close-up, Cassius already in frame, composed - he came in open to the room; what he just heard tells him who Vivienne is. His eyes slide toward frame left, toward the voice, before his head turns a fraction to follow. His relaxed mouth settles into a firm line, his brows draw together very slightly, and a muscle tightens in his jaw. One slow blink. Quiet judgment, not anger. - he has decided something -
 
 Sound design: No music. The tail of a few stifled laughs dying away, then near silence.
+
 Cassius, a young man with grey-green eyes and dark tousled hair in a charcoal blazer with dusty-red piping, stands just inside a pastel classroom doorway, sage door and pink panels soft behind him. First he hears a cruel remark from across the room, and his eyes slide toward it, frame left. Then his mouth settles into a firm line, his brows draw together slightly and his jaw tightens; he blinks once, quietly judging. Soft daylight from the side. Close-up at eye level, static tripod, shallow depth of field, 16:9. Match his face, uniform and the doorway to the attached references. Audio: a few stifled laughs fading away; near silence; no music.
+
 S10 · The choice
+
 Camera: locked symmetrical wide; show both empty chairs. Actors: Cassius stops, looks at Vivienne, then turns toward Linney's chair. Attach: S10.png, cassius.png, vivienne.png, linney.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S10: first frame, framing and seating; Cassius standing in the center aisle at the front desks. Hold this exact composition.
 @Image2 - Cassius: as his sheet. He will choose for himself, not be claimed. Tic: his eyes move a beat before his head. 100% matches. Character appearance only.
 @Image3 - Vivienne: as her sheet; outer left, hand on her empty chair. Character appearance only.
@@ -192,9 +324,13 @@ Physics lock: real weight and gravity, weight shifting between his feet as he tu
 CUT - frontal wide, Cassius already standing in the aisle - Vivienne expects him; Linney expects nothing. He looks at Vivienne first; she lifts her chin and taps the chair. He holds her look for one beat, unmoved. Then his eyes go right to Linney, and his shoulders and hips turn toward her empty chair. Vivienne's smile stays fixed. Students lean forward. - he hasn't sat yet -
 
 Sound design: No music. The room holding its breath, a single whisper.
-In a symmetrical pastel classroom, Cassius, a tall young man in a charcoal blazer with dusty-red piping, stands in the center aisle between two yellow front desks. Vivienne, auburn-haired, sits at the left desk with her hand on the empty chair beside her; Linney, in plain light grey, reads at the right desk beside another empty chair. First Cassius looks at Vivienne, who lifts her chin and taps her chair. Then he turns his eyes, shoulders and hips toward Linney's empty chair. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: the room goes still; a single whisper; no music.
+
+In a symmetrical pastel classroom, Cassius, a tall young man in a charcoal blazer with dusty-red piping, stands in the center aisle between two yellow front desks. Vivienne, auburn-haired, sits at the left desk with her hand on the empty chair beside her; Linney, in plain light grey, reads at the right desk beside another empty chair. First Cassius looks at Vivienne, who lifts her chin and taps her chair. Then he turns his eyes, shoulders and hips toward Linney's empty chair. Behind them, students lean forward, nudge each other and whisper as they watch. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: the room goes still; a single whisper; no music.
+
 S11 · He sits beside her
+
 Camera: hold the wide through the sit. Actors: Cassius pulls out Linney's adjacent chair and sits behind the desk. Attach for Seedance: S10.png as the start frame, S11.png as the end frame, plus cassius.png, vivienne.png, linney.png, room.png, house-uniforms.png. MAGI-2 cannot combine a start frame with reference images, so use S10.png as its start frame and S11.png as its end frame with no other references.
+
 @Image1 - approved still S10: first frame, framing and seating. Cassius starts standing in the aisle.
 @Image2 - approved still S11: last frame. Cassius ends seated in the inner chair at the right desk, beside Linney. Exactly one Cassius.
 @Image3 - Cassius: as his sheet. 100% matches. Character appearance only.
@@ -209,12 +345,16 @@ Tech spec: 63 degree lens, frontal and centered, locked off, deep focus. Lens lo
 Lighting lock: soft even daylight from the two leaded side windows; pastel palette; gentle shadows that hold detail. Never harsh sun or high contrast.
 Physics lock: real weight and gravity, a two-step walk with weight transfer, his hand taking the chair's weight as he pulls it out, his body settling into the seat. No gliding, no sliding, no chair moving by itself.
 
-CUT - frontal wide - he takes two steps to the right desk, pulls out the inner chair with one hand and sits beside Linney, settling behind the desk with his legs under it. He turns his torso slightly toward her with a small warm smile. Linney's hand stops on her book. On the left, Vivienne's hand stays frozen on her empty chair. - the room goes quiet -
+CUT - frontal wide - he takes two steps to the right desk, pulls out the inner chair with one hand and sits beside Linney, settling behind the desk with his legs under it. He turns his torso slightly toward her with a small warm smile. Linney's hand stops on her book. On the left, Vivienne's hand stays frozen on her empty chair. Behind them, students turn to each other; one covers a gasp, others stare. - the room goes quiet -
 
 Sound design: No music. Two footsteps, the chair scraping on the floor, a sharp collective hush.
-In a symmetrical pastel classroom, Cassius, a tall young man in a charcoal blazer with dusty-red piping, stands in the center aisle. First he takes two steps to the right front desk, pulls out the empty coral chair beside Linney and sits, turning slightly toward her with a small warm smile. Then Linney, freckled in plain light grey, goes still over her book, while Vivienne, auburn-haired at the left desk, keeps her hand frozen on her own empty chair. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Audio: two footsteps; the chair scraping on the floor; the room falling silent; no music.
+
+In a symmetrical pastel classroom, Cassius, a tall young man in a charcoal blazer with dusty-red piping, stands in the center aisle. First he takes two steps to the right front desk, pulls out the empty coral chair beside Linney and sits, turning slightly toward her with a small warm smile. Then Linney, freckled in plain light grey, goes still over her book, while Vivienne, auburn-haired at the left desk, keeps her hand frozen on her own empty chair. Behind them, students turn to each other, one covering a gasp, others staring. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Audio: two footsteps; the chair scraping on the floor; the room falling silent; no music.
+
 S11A · Her pen stops
+
 Camera: locked straight down on the notebook. Actors: Linney writes, stops mid-line, then holds the pen still. Attach: S11A.png, linney.png, room.png.
+
 @Image1 - approved still S11A: first frame and exact overhead framing. Hold this exact composition.
 @Image2 - Linney: plain light-grey blazer sleeves with white cuffs, fair skin. Hands and sleeves only.
 @Image3 - empty classroom: the honey-yellow desktop and soft daylight only.
@@ -228,9 +368,13 @@ Physics lock: real weight, the pen's nib dragging on paper, fingers flexing natu
 CUT - overhead insert, her hands already in frame - she writes the end of a line in small neat script, the nib moving steadily. Mid-word the nib stops just above the paper. Her fingers tighten a fraction on the pen and hold. Her other hand stays flat on the page. Nothing moves for a long beat. - the pen stays still -
 
 Sound design: No music. The scratch of the nib, then it stops; quiet.
+
 Overhead, straight down on a honey-yellow classroom desk: Linney's hands in plain light-grey sleeves over an open cream notebook, a slim burgundy fountain pen in her right hand. First she writes the end of a line in small neat script. Then, mid-word, the nib stops just above the paper and her fingers tighten slightly on the pen and hold completely still. Soft even window daylight. Insert shot, static overhead camera, 16:9. Match the hands, sleeves and desk to the attached references. Audio: the scratch of the nib on paper, then silence; no music.
+
 S12 · The flip lands
+
 Camera: locked wide; keep the rejected chair visible. Actors: Linney meets his eyes; Vivienne's smile fades and her hand leaves the chair. Attach: S12.png, cassius.png, vivienne.png, linney.png, room.png, house-uniforms.png.
+
 @Image1 - approved still S12: first frame, framing and seating. Hold this exact composition.
 @Image2 - Linney: as her sheet; outer right. She wants to stay invisible. However, when he is kind to her, a small smile escapes before she can stop it. Eye life: wide, wet catchlights, a quick blink. Character appearance only.
 @Image3 - Cassius: as his sheet; seated inner right beside her. Character appearance only.
@@ -247,4 +391,5 @@ Physics lock: real weight, natural breathing, small shifts in the chairs. No fro
 CUT - frontal wide, all three already seated - at the right desk Linney lifts her face from the book and meets Cassius's eyes; a small, disbelieving smile escapes her. He holds her look, warm and quiet. At the left desk Vivienne's smile slips away; her lips press together and her hand slides off the top of the empty chair into her lap. Behind them, students exchange glances. - the empty chair stays empty -
 
 Sound design: No music. The room settling, a soft murmur returning.
-A symmetrical pastel classroom. At the right front desk, Cassius, a tall young man in a charcoal blazer with dusty-red piping, sits beside Linney, a freckled young woman in plain light grey. At the left desk Vivienne, auburn-haired, sits beside an empty coral chair. First Linney lifts her face from her book, meets Cassius's eyes and a small disbelieving smile escapes her; he holds her look warmly. Then Vivienne's smile fades, her lips press together and her hand slides off the empty chair into her lap. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: the room settling; a soft murmur returning; no music.
+
+A symmetrical pastel classroom. At the right front desk, Cassius, a tall young man in a charcoal blazer with dusty-red piping, sits beside Linney, a freckled young woman in plain light grey. At the left desk Vivienne, auburn-haired, sits beside an empty coral chair. First Linney lifts her face from her book, meets Cassius's eyes and a small disbelieving smile escapes her; he holds her look warmly. Then Vivienne's smile fades, her lips press together and her hand slides off the empty chair into her lap. Behind them, classmates exchange glances and lean together to whisper. Soft daylight from both windows. Wide shot, static tripod, frontal and centered, deep focus, 16:9. Match faces, uniforms and the room to the attached references. Audio: the room settling; a soft murmur returning; no music.
