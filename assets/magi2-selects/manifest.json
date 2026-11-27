@@ -1,0 +1,32 @@
+[
+  {
+    "shot": "S01",
+    "title": "Classroom",
+    "take": "S01_magi2_t01.mp4",
+    "select": "S01.mp4"
+  },
+  {
+    "shot": "S02",
+    "title": "Cassius enters",
+    "take": "S02_magi2_t01.mp4",
+    "select": "S02.mp4"
+  },
+  {
+    "shot": "S03",
+    "title": "Cassius close-up",
+    "take": "S03_magi2_t01.mp4",
+    "select": "S03.mp4"
+  },
+  {
+    "shot": "S04",
+    "title": "Students react",
+    "take": "S04_magi2_t01.mp4",
+    "select": "S04.mp4"
+  },
+  {
+    "shot": "S05",
+    "title": "Invitation",
+    "take": "S05_magi2_t01.mp4",
+    "select": "S05.mp4"
+  }
+]
