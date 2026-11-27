@@ -38,3 +38,21 @@ function renderClassroomPair(n){
 }
 renderClassroomPair(0);
 [['#scene-art',1],['#still-art',5],['#motion-art',5]].forEach(([selector,n])=>{const target=$(selector);target.classList.add('render-stack');target.insertAdjacentHTML('afterbegin',`<img src="${shotImage(n)}" alt="Current Empty Chair rendered reference">`)});
+
+// Reference inputs belong in the lesson itself, above the small teaching sketches.
+const referenceSlides=[
+ ['Cassius · character sheet','cassius.png','Face · hair · costume',classroomSketch('cassius')],
+ ['The empty classroom','room.png','Door · separate desks · light',scene()],
+ ['Vivienne · character sheet','vivienne.png','Same house crest as Cassius',classroomSketch('offer')],
+ ['Linney · character sheet','linney.png','Linney alone wears plain grey',classroomSketch('linney')],
+ ['Background house uniforms','house-uniforms.png','Pastel blue · cream · lilac · teal',classroomSketch('students')],
+ ['The composed first frame','S01.png','One empty chair beside each woman',classroomSketch('wide')]
+];
+function renderReferencePair(pair=0){
+ const root=$('#references');root.classList.add('classroom-slide');
+ root.innerHTML=`<div class="classroom-toolbar"><h1>Make references <small>· Lock the people and the place</small></h1><div class="classroom-pairs" aria-label="Reference pairs">${['Person + room','Vivienne + Linney','Uniforms + frame'].map((name,i)=>`<button data-reference-pair="${i}" class="${i===pair?'active':''}" aria-pressed="${i===pair}">${name}</button>`).join('')}</div></div><div class="classroom-grid">${referenceSlides.map(([title,file,note,diagram],i)=>`<div ${Math.floor(i/2)!==pair?'hidden':''}><article class="classroom-card"><h3>${esc(title)}</h3><img src="assets/classroom-build/${file}" alt="${esc(title)}"><div class="classroom-geometry">${diagram}<small>Simplified teaching sketch</small></div><div class="classroom-caption"><b>${esc(note)}</b><p>${i===5?'Combine the references to build the shot.':'Reuse this reference when making each shot.'}</p><a href="assets/classroom-build/${file}" target="_blank" rel="noopener">Open full-size reference ↗</a></div></article></div>`).join('')}</div><div class="classroom-controls"><button data-reference-prev ${pair===0?'disabled':''}>← Previous references</button><span>${pair+1} / 3 · <a href="classroom-shot-01.html">First shot: inputs & full prompt ↗</a></span><button data-reference-next ${pair===2?'disabled':''}>Next references →</button></div>`;
+ root.querySelectorAll('[data-reference-pair]').forEach(b=>b.onclick=()=>renderReferencePair(+b.dataset.referencePair));
+ root.querySelector('[data-reference-prev]').onclick=()=>renderReferencePair(pair-1);
+ root.querySelector('[data-reference-next]').onclick=()=>renderReferencePair(pair+1);
+}
+renderReferencePair();
