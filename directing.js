@@ -1,20 +1,40 @@
-const shotImage=n=>`assets/empty-chair/S${String(n).padStart(2,'0')}.png`;
-// Existing stills illustrate the look; missing action coverage stays explicit.
-const boardImages=[2,null,1,2,3,5,6,7,9];
-document.querySelectorAll('.board-card').forEach((card,i)=>{const n=boardImages[i];const stage=card.querySelector('svg');stage.classList.add('staging-sketch');const image=n?`<img class="board-render" src="${shotImage(n)}" alt="Wes-inspired rendered reference for ${esc(board[i][1])}"><small class="render-note">${i===0?'Doorway reference; room reactions still needed':i===5?'Candidate: seated pose; standing choice still needed':'Existing look reference'}</small>`:'<div class="render-missing">RENDER NEEDED<br><span>Classmates turn and clear seats.</span></div>';card.insertAdjacentHTML('afterbegin',image)});
-const directed=[
- {title:'The entrance',render:2,art:'entry',move:'LOCKED · centered doorway',words:'No dialogue. Conversation falters.',note:'Add classmates turning in a wide: the current portrait alone does not prove his desirability.'},
- {title:'The invitation',render:3,art:'offer',move:'HOLD · frontal medium',words:'No dialogue. She pats the empty chair.',note:'Her confidence establishes the seat he is expected to choose.'},
- {title:'The insult → Linney',render:3,end:1,art:'insult',move:'FAST PAN → Vivienne to Linney',words:'Vivienne: “Who let the charity case in?”',note:'Start on Vivienne; land on Linney writing. The wide is geography reference only; a matching tight landing frame is still needed.'},
- {title:'He hears',render:2,art:'listen',move:'CUT · centered single',words:'No dialogue. He registers the insult.',note:'Hold the camera. His eye movement connects the insult to his decision.'},
- {title:'He chooses',render:4,art:'choice',move:'LOCKED WIDE · actor crosses',words:'No dialogue. He looks toward the offered seat, then moves to Linney.',note:'Approach reference shown. A stopped-choice frame is still needed; keep both separate desks and the aisle visible.'},
- {title:'He sits beside her',render:6,art:'pair',move:'HOLD · frontal two-shot',words:'No dialogue. Chair scrape; room quiets.',note:'Let the newly formed pair settle. Do not move the door to center it behind them.'},
- {title:'Her pencil stops',render:7,art:'pen',move:'HARD CUT · exact overhead',words:'No dialogue. The writing stops.',note:'Cut to the small physical proof that she noticed.'},
- {title:'The rejection lands',render:6,end:8,art:'reaction',move:'RETURN TO PAIR → WHIP-PAN to Vivienne',words:'No dialogue. Land on her reaction and hold.',note:'A proposed move across the same room. Match camera height, lens and eyelines before generating; these independently rendered stills are not a verified pan pair.'},
- {title:'The consequence',render:9,art:'pair',move:'CUT · symmetrical wide',words:'No dialogue. Hold the empty offered chair.',note:'His choice has changed the arrangement. Keep the consequence readable.'}
+// Current classroom renders, paired for screen sharing.
+const classroomShots=[
+ ['The classroom','WIDE · locked symmetry','Two desks. Two empty seats.','wide'],
+ ['Cassius enters','WIDE · hold the doorway','He enters; attention shifts.','entry'],
+ ['Meet the power lead','CLOSE-UP · hold','Let his stillness register.','cassius'],
+ ['Everyone notices','MEDIUM · reaction cut','Whispers and glances establish his pull.','students'],
+ ['The invitation','MEDIUM · locked','Vivienne claims the empty chair.','offer'],
+ ['She turns back','MEDIUM · deep staging','Her look connects to Cassius at the door.','turn'],
+ ['Linney looks up','CLOSE-UP · reaction cut','A glance, then back to her book.','linney'],
+ ['The put-down','MEDIUM · hold, then pan right','Proposed: “He’s not sitting with you.”','offer'],
+ ['He hears it','CLOSE-UP · hold','His expression changes.','cassius'],
+ ['The choice','WIDE · actor moves, camera holds','He pauses, then chooses Linney.','choice'],
+ ['He sits beside her','WIDE · hold','Chair scrape. Vivienne’s seat stays empty.','seated'],
+ ['The flip lands','WIDE · hold the consequence','Power Lead Chooses YOU.','seated']
 ];
-$('#shot-tabs').innerHTML=directed.map((s,i)=>`<button data-shot="${i}">${i+1} · ${esc(s.title)}</button>`).join('');
-function renderDirected(i){const s=directed[i];$('#direct-cards').innerHTML=`<div class="direct-visuals"><figure><figcaption>${s.end?'START REFERENCE':'RENDERED LOOK REFERENCE'}</figcaption><img src="${shotImage(s.render)}" alt="${esc(s.title)} rendered reference">${art(s.art)}<small>Basic staging sketch</small></figure>${s.end?`<figure><figcaption>${i===2?'ROOM / LANDING GEOGRAPHY':'LANDING REFERENCE'}</figcaption><img src="${shotImage(s.end)}" alt="Landing reference">${art(i===2?'pen':'reaction')}<small>Basic landing sketch</small></figure>`:''}</div><div class="direct-instruction"><h2>${esc(s.move)}</h2><p>${esc(s.words)}</p><small>${esc(s.note)}</small></div>`;document.querySelectorAll('[data-shot]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.shot)===i);b.setAttribute('aria-pressed',Number(b.dataset.shot)===i?'true':'false')})}
-document.querySelectorAll('[data-shot]').forEach(b=>b.onclick=()=>renderDirected(Number(b.dataset.shot)));renderDirected(0);
-// Add useful existing renders to the planning steps, above their diagrams.
-[['#scene-art',1],['#still-art',3],['#motion-art',3]].forEach(([selector,n])=>{const target=$(selector);target.classList.add('render-stack');target.insertAdjacentHTML('afterbegin',`<img src="${shotImage(n)}" alt="Existing Empty Chair rendered reference">`)});
+const shotImage=n=>`assets/classroom-build/S${String(n).padStart(2,'0')}.png`;
+function classroomSketch(kind){
+ const person=(x,y,c,label)=>`<circle cx="${x}" cy="${y}" r="9" fill="#e5c8b5"/><rect x="${x-10}" y="${y+10}" width="20" height="23" rx="4" fill="${c}"/><text x="${x}" y="${y+48}" text-anchor="middle">${label}</text>`;
+ const chair=x=>`<rect x="${x-12}" y="79" width="24" height="28" rx="6" fill="none" stroke="#e4a18c" stroke-width="3"/>`;
+ let content='';
+ if(['cassius','linney'].includes(kind))content=person(200,48,kind==='cassius'?'#46454c':'#a9aaae',kind==='cassius'?'Cassius':'Linney');
+ else if(kind==='students')content=[100,160,220,280].map((x,i)=>person(x,44,['#bfd6e5','#c8b9db','#c5ddd3','#eee3cc'][i],i<2?'whisper':'look')).join('');
+ else if(['offer','turn'].includes(kind))content='<rect x="92" y="112" width="200" height="10" fill="#ccb076"/>'+person(135,55,'#44434a','Vivienne')+chair(240)+(kind==='turn'?'<rect x="320" y="10" width="45" height="70" fill="#677e70"/>'+person(342,24,'#44434a','Cassius'):'')+'<path d="M145 78L228 82" stroke="#e5c8b5" stroke-width="5"/>';
+ else content='<rect x="181" y="8" width="38" height="54" fill="#718a79"/><rect x="35" y="112" width="135" height="10" fill="#ccb076"/><rect x="230" y="112" width="135" height="10" fill="#ccb076"/>'+person(65,62,'#44434a','Vivienne')+person(335,62,'#a9aaae','Linney')+chair(140)+(kind==='seated'?person(260,62,'#44434a','Cassius'):chair(260))+(kind==='entry'?person(200,18,'#44434a','Cassius'):kind==='choice'?person(200,62,'#44434a','Cassius'):'');
+ return `<svg viewBox="0 0 400 140" role="img" aria-label="${kind} simplified staging"><rect width="400" height="140" fill="#303d38"/><g fill="#eee" font-family="system-ui" font-size="10">${content}</g></svg>`;
+}
+function classroomCard(s,i){return `<article class="classroom-card"><h3>${String(i+1).padStart(2,'0')} · ${esc(s[0])}</h3><img src="${shotImage(i+1)}" alt="${esc(s[0])}"/><div class="classroom-geometry">${classroomSketch(s[3])}<small>Simplified staging</small></div><div class="classroom-caption"><b>${esc(s[1])}</b><p>${esc(s[2])}</p><a href="classroom-shot-${String(i+1).padStart(2,'0')}.html">References & full prompt ↗</a></div></article>`}
+let classroomPair=0;
+function renderClassroomPair(n){
+ classroomPair=Math.max(0,Math.min(5,n));
+ for(const id of ['storyboard','direct']){
+ const root=$('#'+id);root.classList.add('classroom-slide');
+ root.innerHTML=`<div class="classroom-toolbar"><h1>${id==='direct'?'Direct the shots':'The Empty Chair'} <small>· Wes-inspired test</small></h1><div class="classroom-pairs" aria-label="Shot pairs">${Array.from({length:6},(_,j)=>`<button data-classroom-pair="${j}" class="${j===classroomPair?'active':''}" aria-pressed="${j===classroomPair}">${j*2+1}–${j*2+2}</button>`).join('')}</div></div><div class="classroom-grid">${classroomShots.map((s,i)=>`<div ${Math.floor(i/2)!==classroomPair?'hidden':''}>${classroomCard(s,i)}</div>`).join('')}</div><div class="classroom-controls"><button data-classroom-prev ${classroomPair===0?'disabled':''}>← Previous shots</button><span>${classroomPair+1} / 6 · Stills above, staging below · camera moves are proposals</span><button data-classroom-next ${classroomPair===5?'disabled':''}>Next shots →</button></div>`;
+ root.querySelectorAll('[data-classroom-pair]').forEach(b=>b.onclick=()=>renderClassroomPair(+b.dataset.classroomPair));
+ root.querySelector('[data-classroom-prev]').onclick=()=>renderClassroomPair(classroomPair-1);
+ root.querySelector('[data-classroom-next]').onclick=()=>renderClassroomPair(classroomPair+1);
+ }
+}
+renderClassroomPair(0);
+[['#scene-art',1],['#still-art',5],['#motion-art',5]].forEach(([selector,n])=>{const target=$(selector);target.classList.add('render-stack');target.insertAdjacentHTML('afterbegin',`<img src="${shotImage(n)}" alt="Current Empty Chair rendered reference">`)});
