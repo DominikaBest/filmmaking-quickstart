@@ -2,31 +2,108 @@
   {
     "shot": "S01",
     "title": "Classroom",
-    "take": "S01_magi2_t01.mp4",
+    "takes": [
+      "S01_magi2_t01.mp4",
+      "S01_magi2_t02.mp4"
+    ],
     "select": "S01.mp4"
   },
   {
     "shot": "S02",
     "title": "Cassius enters",
-    "take": "S02_magi2_t01.mp4",
+    "takes": [
+      "S02_magi2_t01.mp4"
+    ],
     "select": "S02.mp4"
   },
   {
     "shot": "S03",
     "title": "Cassius close-up",
-    "take": "S03_magi2_t01.mp4",
+    "takes": [
+      "S03_magi2_t01.mp4"
+    ],
     "select": "S03.mp4"
   },
   {
     "shot": "S04",
     "title": "Students react",
-    "take": "S04_magi2_t01.mp4",
+    "takes": [
+      "S04_magi2_t01.mp4"
+    ],
     "select": "S04.mp4"
   },
   {
     "shot": "S05",
     "title": "Invitation",
-    "take": "S05_magi2_t01.mp4",
+    "takes": [
+      "S05_magi2_t01.mp4",
+      "S05_magi2_t02.mp4",
+      "S05_magi2_t03.mp4"
+    ],
     "select": "S05.mp4"
+  },
+  {
+    "shot": "S07",
+    "title": "Linney looks up",
+    "takes": [
+      "S07_magi2_t01.mp4"
+    ],
+    "select": "S07.mp4"
+  },
+  {
+    "shot": "S08",
+    "title": "The put-down (whip pan)",
+    "takes": [
+      "S08_seedance_whip_t01.mp4"
+    ],
+    "select": "S08.mp4"
+  },
+  {
+    "shot": "S09",
+    "title": "He hears it",
+    "takes": [
+      "S09_magi2_t01.mp4"
+    ],
+    "select": "S09.mp4"
+  },
+  {
+    "shot": "S10",
+    "title": "The choice",
+    "takes": [
+      "S10_magi2_t01.mp4"
+    ],
+    "select": "S10.mp4"
+  },
+  {
+    "shot": "S11",
+    "title": "He sits",
+    "takes": [
+      "S11_magi2_t01.mp4"
+    ],
+    "select": "S11.mp4"
+  },
+  {
+    "shot": "S11A",
+    "title": "Her page stops",
+    "takes": [
+      "S11A_magi2_t01.mp4"
+    ],
+    "select": "S11A.mp4"
+  },
+  {
+    "shot": "S11B",
+    "title": "He smiles, she looks down",
+    "takes": [
+      "S11B_magi2_t02.mp4"
+    ],
+    "select": "S11B.mp4"
+  },
+  {
+    "shot": "S12",
+    "title": "The consequence",
+    "takes": [
+      "S12_magi2_t01.mp4"
+    ],
+    "select": "S12.mp4"
   }
 ]

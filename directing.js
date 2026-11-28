@@ -1,17 +1,18 @@
 // Current classroom renders, paired for screen sharing.
 const classroomShots=[
- ['The classroom','WIDE · locked symmetry','Two desks. Two empty seats.','wide'],
+ ['The classroom','WIDE · locked symmetry','“Who let the charity case in?” Two desks. Two empty seats.','wide'],
  ['Cassius enters','WIDE · hold the doorway','He enters; attention shifts.','entry'],
  ['Meet the power lead','CLOSE-UP · hold','Let his stillness register.','cassius'],
  ['Everyone notices','MEDIUM · reaction cut','Whispers and glances establish his pull.','students'],
- ['The invitation','MEDIUM · deep staging','Vivienne turns toward Cassius, rests her hand on the chair and holds his gaze.','turn'],
+ ['The invitation','MEDIUM · deep staging','He strides in. She pats the chair; he looks at her, then his eyes go to Linney.','turn'],
  ['She turns back','MEDIUM · deep staging','Her look connects to Cassius at the door.','turn'],
  ['Linney looks up','CLOSE-UP · reaction cut','A glance, then back to her book.','linney'],
- ['The put-down','MEDIUM · hold, then pan right','Proposed: “He’s not sitting with you.”','offer'],
+ ['The put-down','MEDIUM · hold, then whip pan right','“Don’t look so hopeful. He’s not sitting with you.”','offer'],
  ['He hears it','CLOSE-UP · hold','His expression changes.','cassius'],
  ['The choice','WIDE · actor moves, camera holds','He pauses, then chooses Linney.','choice'],
  ['He sits beside her','WIDE · hold','Chair scrape. Vivienne’s seat stays empty.','seated'],
- ['Her pen stops','INSERT · exact overhead','Writing stops as he sits. Hold the tiny pause.','pen','11A'],
+ ['Her page stops','INSERT · exact overhead','Her thumb stops mid-turn as he sits. Hold the tiny pause.','pen','11A'],
+ ['He smiles, she looks down','MEDIUM CLOSE-UP · two-shot','He smiles at her; she drops her eyes, almost smiling.','linney','11B'],
  ['The flip lands','WIDE · hold the consequence','Power Lead Chooses YOU.','seated','12']
 ].map((shot,i)=>{shot[4] ||= String(i+1).padStart(2,'0');return shot}).filter(shot=>shot[4]!=='06');
 const shotImage=n=>`assets/classroom-build/S${Number(n)===5?'06':String(n).padStart(2,'0')}.png`;
@@ -28,18 +29,19 @@ function classroomSketch(kind){
 }
 // Proposed camera and performance directions, indexed by stable production shot ID.
 const shotDirections={
- '01':['▣ HOLD','Locked, frontal wide. Keep the aisle centered.','Students chat or read; Linney looks down. Both spare chairs stay empty.'],
+ '01':['▣ HOLD','Locked, frontal wide. Keep the aisle centered.','Vivienne sneers across the aisle: “Who let the charity case in?” Linney keeps reading. Both spare chairs stay empty.'],
  '02':['▣ HOLD','Hold the doorway in the centered wide.','Cassius steps through, pauses, then starts down the aisle.'],
  '03':['▣ HOLD','Locked close-up at eye level.','Cassius pauses and surveys the room with a small eye movement.'],
  '04':['▣ HOLD','Locked medium on the students.','Heads turn toward Cassius; two girls lean together, whisper and giggle.'],
- '05':['▣ HOLD','Hold Vivienne and the empty chair foreground, Cassius in the doorway.','Vivienne turns toward Cassius, rests her hand on the empty chair and holds his gaze. Classmates turn, whisper and glance between her and the door.'],
+ '05':['▣ HOLD','Hold Vivienne and the empty chair foreground, the doorway deep behind her.','Cassius strides in. Vivienne pats the empty chair; he looks at her for a beat, then his eyes slide across to Linney. Classmates follow his eyes.'],
  '07':['▣ HOLD','Locked close-up on Linney.','She glances toward Cassius, then lowers her eyes to the page. Behind her, students keep reading, writing and whispering.'],
- '08':['→ PAN','True pan: the tripod stays in front of Vivienne’s desk. Hold for the line, then turn right about 45° across the aisle, past Cassius in the door, and land on Linney.','Vivienne gives Linney a dismissive smile; Linney keeps her eyes down. Students behind them whisper and trade glances; two stifle laughs.'],
- '09':['▣ HOLD','Locked close-up. Let his reaction play.','Cassius hears the insult; his eyes shift toward Vivienne and his jaw settles.'],
+ '08':['→ WHIP','Hold on Vivienne for the line, then whip pan right; the blur hides the middle and the camera snaps onto Linney. (Seedance 2.5.)','Vivienne gives Linney a dismissive smile; Linney keeps her eyes down. Students behind them whisper and trade glances; two stifle laughs.'],
+ '09':['▣ HOLD','Locked close-up. Let his reaction play.','Cassius, stopped mid-aisle, hears the insult; his eyes shift toward Vivienne and his jaw settles.'],
  '10':['▣ HOLD','Locked symmetrical wide; show both empty chairs.','Cassius stops, looks at Vivienne, then turns toward Linney’s chair. Students lean forward, nudge each other and whisper.'],
  '11':['▣ HOLD','Hold the wide through the sit.','Cassius pulls out Linney’s adjacent chair and sits behind the desk. Students turn to each other; one covers a gasp.'],
- '11A':['↓ OVERHEAD','Locked straight down on the notebook.','Linney writes, stops mid-line, then holds the pen still.'],
- '12':['▣ HOLD','Locked wide; keep the rejected chair visible.','Linney meets his eyes; Vivienne’s smile fades and her hand leaves the chair. Classmates exchange glances and whisper.']
+ '11A':['↓ OVERHEAD','Locked straight down on her open book.','Her thumb starts to turn the page, stops mid-turn and presses it flat.'],
+ '11B':['▣ HOLD','Locked medium close-up two-shot, shallow focus; Cassius frame left, Linney frame right.','He turns to her with a small warm smile; she glances up, then drops her eyes to her book, almost smiling.'],
+ '12':['▣ HOLD','Locked wide; keep the rejected chair visible.','Vivienne glares at them. Linney looks up and smiles at Cassius; he smiles back. Vivienne’s hand leaves the chair and she looks away.']
 };
 function classroomCard(s,i,direct=false){
  const number=s[4]||String(i+1).padStart(2,'0');const direction=shotDirections[number];
@@ -62,8 +64,8 @@ function renderPan08(){
  const root=$('#direct');
  root.querySelectorAll('[data-classroom-pair]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
  root.querySelector('[data-pan-08]').classList.add('active');root.querySelector('[data-pan-08]').setAttribute('aria-pressed','true');
- root.querySelector('.classroom-grid').innerHTML=[['START · Vivienne','S08.png','offer','Hold while Vivienne delivers the put-down.','Vivienne looks across at Linney; her hand stays on the chair.','08'],['END · Linney','S08-END.png','linney','Same tripod, turned right: settle diagonally on Linney and hold.','Linney keeps her eyes down; a slight tension in her mouth.','08-END']].map(([title,image,diagram,camera,actors,id])=>`<div><article class="classroom-card"><h3>${title}<span class="move-badge">→ PAN RIGHT</span></h3><img src="assets/classroom-build/${image}" alt="${title} pan reference"><div class="classroom-geometry">${classroomSketch(diagram)}<small>Simplified staging</small></div><div class="classroom-caption"><div class="blocking-row"><b>CAMERA</b><span>${camera}</span></div><div class="blocking-row"><b>ACTORS</b><span>${actors}</span></div><a href="classroom-shot-${id}.html">References & full prompt ↗</a></div></article></div>`).join('');
- root.querySelector('.classroom-controls').innerHTML='<button data-pan-back>← Shot list</button><span>ONE SHOT · START → PAN RIGHT → END · true pan · tripod fixed · movement not yet tested</span><button data-pan-forward>Next: he hears →</button>';
+ root.querySelector('.classroom-grid').innerHTML=[['START · Vivienne','S08.png','offer','Hold while Vivienne delivers the put-down.','Vivienne looks across at Linney; her hand stays on the chair.','08'],['END · Linney','S08-whip-END.png','linney','Whip pan right and snap onto Linney; hold.','Linney keeps her eyes down; her thumb presses the page flat.','08-END']].map(([title,image,diagram,camera,actors,id])=>`<div><article class="classroom-card"><h3>${title}<span class="move-badge">→ WHIP PAN</span></h3><img src="assets/classroom-build/${image}" alt="${title} pan reference"><div class="classroom-geometry">${classroomSketch(diagram)}<small>Simplified staging</small></div><div class="classroom-caption"><div class="blocking-row"><b>CAMERA</b><span>${camera}</span></div><div class="blocking-row"><b>ACTORS</b><span>${actors}</span></div><a href="classroom-shot-${id}.html">References & full prompt ↗</a></div></article></div>`).join('');
+ root.querySelector('.classroom-controls').innerHTML='<button data-pan-back>← Shot list</button><span>ONE SHOT · START → WHIP PAN → END · Seedance 2.5 · the blur hides the middle</span><button data-pan-forward>Next: he hears →</button>';
  root.querySelector('[data-pan-back]').onclick=()=>renderClassroomPair(3);
  root.querySelector('[data-pan-forward]').onclick=()=>renderClassroomPair(3);
 }
