@@ -27,7 +27,8 @@ const selectedClips=[
  {id:'11A',title:'Her page stops',still:'S11A',takes:[
    ['S11A_magi2_t01.mp4','Take 1 · SELECT','Planned as a pen insert, but she reads a book in every other shot. Re-made the still as a book insert first.']]},
  {id:'11B',title:'He smiles, she looks down',still:'S11B',takes:[
-   ['S11B_magi2_t02.mp4','Take 2 · SELECT','New shot added so the cut lands in a two-shot before the wide. Take 1 painted a blush on her because the prompt said she “colours”; take 2 shows shyness with action instead.']]},
+   ['S11B_magi2_t01.mp4','Take 1','New shot, added so the cut lands in a two-shot before the wide. The prompt said she “colours”, and the still prompt asked for “a faint flush”, so MAGI-2 painted a blush on her.'],
+   ['S11B_magi2_t02.mp4','Take 2 · SELECT','Both blush cues removed (plus “natural skin tone”). Shyness now comes from action: a glance up, eyes down, a hair tuck.']]},
  {id:'12',title:'The consequence',still:'S12',takes:[
    ['S12_magi2_t01.mp4','Take 1 · SELECT','Vivienne glares; Linney looks up and smiles at him, he smiles back.']]}
 ];
